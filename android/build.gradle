@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 buildscript {
   repositories {
@@ -6,17 +7,17 @@ buildscript {
   }
 }
 apply plugin: 'com.android.application'
-
+//apply plugin: 'kotlin-android'
 
 android {
-  namespace = "own.spacewallpaper"
-  compileSdk = 37
+  namespace = "own.planetslivewallpaper"
+  compileSdk 37
   sourceSets {
     main {
       manifest.srcFile 'AndroidManifest.xml'
-      java.setSrcDirs(['src/main/java'])
-      aidl.setSrcDirs(['src/main/java'])
-      renderscript.setSrcDirs(['src/main/java'])
+      java.setSrcDirs(['src/main/java', 'src/main/kotlin'])
+      aidl.setSrcDirs(['src/main/java', 'src/main/kotlin'])
+      renderscript.setSrcDirs(['src/main/java', 'src/main/kotlin'])
       res.setSrcDirs(['res'])
       assets.setSrcDirs(['../assets'])
       jniLibs.setSrcDirs(['libs'])
@@ -31,23 +32,26 @@ android {
 		}
   }
   defaultConfig {
-    applicationId 'own.spacewallpaper'
+    applicationId 'own.planetslivewallpaper'
     minSdkVersion 21
     targetSdkVersion 37
     versionCode 1
     versionName "1.0"
   }
   compileOptions {
-    sourceCompatibility "8"
-    targetCompatibility "8"
+    sourceCompatibility "21"
+    targetCompatibility "21"
     coreLibraryDesugaringEnabled = true
   }
   buildTypes {
     release {
       minifyEnabled true
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+      proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), 'proguard-rules.pro'
     }
   }
+
+  kotlin.compilerOptions.jvmTarget.set(JvmTarget.JVM_21)
+
 }
 
 repositories {
@@ -119,7 +123,7 @@ tasks.register('run', Exec) {
   }
 
   def adb = path + "/platform-tools/adb"
-  commandLine "$adb", 'shell', 'am', 'start', '-n', 'own.spacewallpaper/own.spacewallpaper.android.AndroidLauncher'
+  commandLine "$adb", 'shell', 'am', 'start', '-n', 'own.planetslivewallpaper/own.planetslivewallpaper.android.AndroidLauncher'
 }
 
 eclipse.project.name = appName + "-android"
