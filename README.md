@@ -1,4 +1,4 @@
-# OwnPlanetsLiveWallpaper in libgdx
+# OwnPlanetsWallpaper in libgdx
 
 
 orignal wallpaper is at 
