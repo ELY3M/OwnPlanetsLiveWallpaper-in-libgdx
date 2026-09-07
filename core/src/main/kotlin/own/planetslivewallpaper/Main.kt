@@ -1,5 +1,7 @@
 package own.planetslivewallpaper
 
+import com.badlogic.gdx.Application
+import com.badlogic.gdx.Application.ApplicationType
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.OrthographicCamera
@@ -14,6 +16,7 @@ class Main : ApplicationAdapter() {
     //1,080px × 2,404px
     var windowWidth: Int = 1000
     var windowHeight: Int = 1000
+    var scale: Float = 1f
     var background: Texture? = null
     var alien3: Texture? = null
     var alien4: Texture? = null
@@ -213,8 +216,19 @@ class Main : ApplicationAdapter() {
         windowHeight = Gdx.app.graphics.height
 
         print("Gdx.app.graphics.width: ${Gdx.app.graphics.width}  Gdx.app.graphics.height: ${Gdx.app.graphics.height}\n")
-        print("windowWidth: $windowWidth  windowHeight: $windowHeight\n");
+        print("windowWidth: $windowWidth  windowHeight: $windowHeight\n")
 
+        if (Gdx.app.type == ApplicationType.Android) {
+            scale = 3f
+        } else if (Gdx.app.type == ApplicationType.iOS) {
+            scale = 3f
+        } else if (Gdx.app.type == ApplicationType.Desktop) {
+            scale = 1f
+        } else if (Gdx.app.type == ApplicationType.WebGL) {
+            scale = 1f
+        }
+
+        print("Gdx.app.getType():  ${Gdx.app.type}  scale: $scale")
 
         background = Texture("background-test.png")
         alien3 = Texture("alien3.png")
@@ -349,113 +363,219 @@ class Main : ApplicationAdapter() {
         batch = SpriteBatch()
 
 
-        //speed test
-        val speed = 0
+        if (Gdx.app.type == ApplicationType.Android || Gdx.app.type == ApplicationType.iOS) {
+            for (i in 0..15) {
+                element1s.add(Planet(windowWidth, windowHeight, element1!!))
+            }
+            for (i in 0..6) {
+                element2s.add(Planet(windowWidth, windowHeight, element2!!))
+            }
+            for (i in 0..1) {
+                element3s.add(Planet(windowWidth, windowHeight, element3!!))
+            }
+            for (i in 0..1) {
+                element4s.add(Planet(windowWidth, windowHeight, element4!!))
+            }
+            for (i in 0..1) {
+                element5s.add(Planet(windowWidth, windowHeight, element5!!))
+            }
+            for (i in 0..1) {
+                element6s.add(Planet(windowWidth, windowHeight, element6!!))
+            }
+            for (i in 0..1) {
+                element7s.add(Planet(windowWidth, windowHeight, element7!!))
+            }
+            for (i in 0..1) {
+                element8s.add(Planet(windowWidth, windowHeight, element8!!))
+            }
+            for (i in 0..1) {
+                element9s.add(Planet(windowWidth, windowHeight, element9!!))
+            }
+            for (i in 0..1) {
+                element10s.add(Planet(windowWidth, windowHeight, element10!!))
+            }
+            for (i in 0..1) {
+                element10s.add(Planet(windowWidth, windowHeight, element11!!))
+            }
+            for (i in 0..1) {
+                element10s.add(Planet(windowWidth, windowHeight, element12!!))
+            }
+            for (i in 0..1) {
+                element10s.add(Planet(windowWidth, windowHeight, element13!!))
+            }
+            for (i in 0..1) {
+                element10s.add(Planet(windowWidth, windowHeight, element14!!))
+            }
+            for (i in 0..1) {
+                element10s.add(Planet(windowWidth, windowHeight, element15!!))
+            }
+            for (i in 0..1) {
+                element10s.add(Planet(windowWidth, windowHeight, element16!!))
+            }
+            for (i in 0..1) {
+                bluemouses.add(Planet(windowWidth, windowHeight, bluemouse!!))
+            }
+            for (i in 0..1) {
+                star32s.add(Planet(windowWidth, windowHeight, star32!!))
+            }
+            for (i in 0..1) {
+                moons.add(Planet(windowWidth, windowHeight, moon!!))
+            }
+            for (i in 0..1) {
+                largemoons.add(Planet(windowWidth, windowHeight, largemoon!!))
+            }
+            for (i in 0..1) {
+                fireflys.add(Planet(windowWidth, windowHeight, firefly!!))
+            }
+            for (i in 0..1) {
+                lights.add(Planet(windowWidth, windowHeight, light!!))
+            }
+            for (i in 0..1) {
+                lightons.add(Planet(windowWidth, windowHeight, lighton!!))
+            }
+            for (i in 0..1) {
+                lightoffs.add(Planet(windowWidth, windowHeight, lightoff!!))
+            }
+            for (i in 0..1) {
+                pixelflys.add(Planet(windowWidth, windowHeight, pixelfly!!))
+            }
+            for (i in 0..1) {
+                tinyufos.add(Planet(windowWidth, windowHeight, tinyufo!!))
+            }
+            for (i in 0..1) {
+                alien3s.add(Planet(windowWidth, windowHeight, alien3!!))
+            }
+            for (i in 0..1) {
+                alien4s.add(Planet(windowWidth, windowHeight, alien4!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid1!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid2!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid3!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid4!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid5!!))
+            }
+        }
+
+        if (Gdx.app.type == ApplicationType.Desktop || Gdx.app.type == ApplicationType.WebGL) {
+            for (i in 0..59) {
+                element1s.add(Planet(windowWidth, windowHeight, element1!!))
+            }
+            for (i in 0..14) {
+                element2s.add(Planet(windowWidth, windowHeight, element2!!))
+            }
+            for (i in 0..4) {
+                element3s.add(Planet(windowWidth, windowHeight, element3!!))
+            }
+            for (i in 0..4) {
+                element4s.add(Planet(windowWidth, windowHeight, element4!!))
+            }
+            for (i in 0..4) {
+                element5s.add(Planet(windowWidth, windowHeight, element5!!))
+            }
+            for (i in 0..4) {
+                element6s.add(Planet(windowWidth, windowHeight, element6!!))
+            }
+            for (i in 0..4) {
+                element7s.add(Planet(windowWidth, windowHeight, element7!!))
+            }
+            for (i in 0..4) {
+                element8s.add(Planet(windowWidth, windowHeight, element8!!))
+            }
+            for (i in 0..4) {
+                element9s.add(Planet(windowWidth, windowHeight, element9!!))
+            }
+            for (i in 0..4) {
+                element10s.add(Planet(windowWidth, windowHeight, element10!!))
+            }
+            for (i in 0..4) {
+                element10s.add(Planet(windowWidth, windowHeight, element11!!))
+            }
+            for (i in 0..4) {
+                element10s.add(Planet(windowWidth, windowHeight, element12!!))
+            }
+            for (i in 0..4) {
+                element10s.add(Planet(windowWidth, windowHeight, element13!!))
+            }
+            for (i in 0..4) {
+                element10s.add(Planet(windowWidth, windowHeight, element14!!))
+            }
+            for (i in 0..4) {
+                element10s.add(Planet(windowWidth, windowHeight, element15!!))
+            }
+            for (i in 0..4) {
+                element10s.add(Planet(windowWidth, windowHeight, element16!!))
+            }
+            for (i in 0..2) {
+                bluemouses.add(Planet(windowWidth, windowHeight, bluemouse!!))
+            }
+            for (i in 0..2) {
+                star32s.add(Planet(windowWidth, windowHeight, star32!!))
+            }
+            for (i in 0..2) {
+                moons.add(Planet(windowWidth, windowHeight, moon!!))
+            }
+            for (i in 0..2) {
+                largemoons.add(Planet(windowWidth, windowHeight, largemoon!!))
+            }
+            for (i in 0..2) {
+                fireflys.add(Planet(windowWidth, windowHeight, firefly!!))
+            }
+            for (i in 0..2) {
+                lights.add(Planet(windowWidth, windowHeight, light!!))
+            }
+            for (i in 0..2) {
+                lightons.add(Planet(windowWidth, windowHeight, lighton!!))
+            }
+            for (i in 0..2) {
+                lightoffs.add(Planet(windowWidth, windowHeight, lightoff!!))
+            }
+            for (i in 0..2) {
+                pixelflys.add(Planet(windowWidth, windowHeight, pixelfly!!))
+            }
+            for (i in 0..2) {
+                tinyufos.add(Planet(windowWidth, windowHeight, tinyufo!!))
+            }
+            for (i in 0..2) {
+                alien3s.add(Planet(windowWidth, windowHeight, alien3!!))
+            }
+            for (i in 0..2) {
+                alien4s.add(Planet(windowWidth, windowHeight, alien4!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid1!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid2!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid3!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid4!!))
+            }
+            for (i in 0..1) {
+                asteroid1s.add(Planet(windowWidth, windowHeight, asteroid5!!))
+            }
+        }
 
 
-        for (i in 0..59) {
-            element1s.add(Planet(windowWidth, windowHeight,element1!!))
-        }
-        for (i in 0..14) {
-            element2s.add(Planet(windowWidth, windowHeight,element2!!))
-        }
-        for (i in 0..4) {
-            element3s.add(Planet(windowWidth, windowHeight,element3!!))
-        }
-        for (i in 0..4) {
-            element4s.add(Planet(windowWidth, windowHeight,element4!!))
-        }
-        for (i in 0..4) {
-            element5s.add(Planet(windowWidth, windowHeight,element5!!))
-        }
-        for (i in 0..4) {
-            element6s.add(Planet(windowWidth, windowHeight,element6!!))
-        }
-        for (i in 0..4) {
-            element7s.add(Planet(windowWidth, windowHeight,element7!!))
-        }
-        for (i in 0..4) {
-            element8s.add(Planet(windowWidth, windowHeight,element8!!))
-        }
-        for (i in 0..4) {
-            element9s.add(Planet(windowWidth, windowHeight,element9!!))
-        }
-        for (i in 0..4) {
-            element10s.add(Planet(windowWidth, windowHeight,element10!!))
-        }
-        for (i in 0..4) {
-            element10s.add(Planet(windowWidth, windowHeight,element11!!))
-        }
-        for (i in 0..4) {
-            element10s.add(Planet(windowWidth, windowHeight,element12!!))
-        }
-        for (i in 0..4) {
-            element10s.add(Planet(windowWidth, windowHeight,element13!!))
-        }
-        for (i in 0..4) {
-            element10s.add(Planet(windowWidth, windowHeight,element14!!))
-        }
-        for (i in 0..4) {
-            element10s.add(Planet(windowWidth, windowHeight,element15!!))
-        }
-        for (i in 0..4) {
-            element10s.add(Planet(windowWidth, windowHeight,element16!!))
-        }
-        for (i in 0..2) {
-            bluemouses.add(Planet(windowWidth, windowHeight,bluemouse!!))
-        }
-
-        for (i in 0..2) {
-            star32s.add(Planet(windowWidth, windowHeight,star32!!))
-        }
-        for (i in 0..2) {
-            moons.add(Planet(windowWidth, windowHeight,moon!!))
-        }
-        for (i in 0..2) {
-            largemoons.add(Planet(windowWidth, windowHeight,largemoon!!))
-        }
-        for (i in 0..2) {
-            fireflys.add(Planet(windowWidth, windowHeight,firefly!!))
-        }
-        for (i in 0..2) {
-            lights.add(Planet(windowWidth, windowHeight,light!!))
-        }
-        for (i in 0..2) {
-            lightons.add(Planet(windowWidth, windowHeight,lighton!!))
-        }
-        for (i in 0..2) {
-            lightoffs.add(Planet(windowWidth, windowHeight,lightoff!!))
-        }
-        for (i in 0..2) {
-            pixelflys.add(Planet(windowWidth, windowHeight,pixelfly!!))
-        }
 
 
-        for (i in 0..2) {
-            tinyufos.add(Planet(windowWidth, windowHeight,tinyufo!!))
-        }
-        for (i in 0..2) {
-            alien3s.add(Planet(windowWidth, windowHeight,alien3!!))
-        }
-        for (i in 0..2) {
-            alien4s.add(Planet(windowWidth, windowHeight,alien4!!))
-        }
 
-        for (i in 0..1) {
-            asteroid1s.add(Planet(windowWidth, windowHeight,asteroid1!!))
-        }
-        for (i in 0..1) {
-            asteroid1s.add(Planet(windowWidth, windowHeight,asteroid2!!))
-        }
-        for (i in 0..1) {
-            asteroid1s.add(Planet(windowWidth, windowHeight,asteroid3!!))
-        }
-        for (i in 0..1) {
-            asteroid1s.add(Planet(windowWidth, windowHeight,asteroid4!!))
-        }
-        for (i in 0..1) {
-            asteroid1s.add(Planet(windowWidth, windowHeight,asteroid5!!))
-        }
+
+
+
+
+
     }
 
     override fun resize(width: Int, height: Int) {
@@ -478,139 +598,139 @@ class Main : ApplicationAdapter() {
 
         for (element in element1s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element1r)
+            element.draw(batch!!, element1r, scale)
         }
         for (element in element2s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element2r)
+            element.draw(batch!!, element2r, scale)
         }
         for (element in element3s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element3r)
+            element.draw(batch!!, element3r, scale)
         }
         for (element in element4s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element4r)
+            element.draw(batch!!, element4r, scale)
         }
         for (element in element5s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element5r)
+            element.draw(batch!!, element5r, scale)
         }
         for (element in element6s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element6r)
+            element.draw(batch!!, element6r, scale)
         }
         for (element in element7s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element7r)
+            element.draw(batch!!, element7r, scale)
         }
         for (element in element8s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element8r)
+            element.draw(batch!!, element8r, scale)
         }
         for (element in element9s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element9r)
+            element.draw(batch!!, element9r, scale)
         }
         for (element in element10s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element10r)
+            element.draw(batch!!, element10r, scale)
         }
         for (element in element11s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element11r)
+            element.draw(batch!!, element11r, scale)
         }
         for (element in element12s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element12r)
+            element.draw(batch!!, element12r, scale)
         }
         for (element in element13s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element13r)
+            element.draw(batch!!, element13r, scale)
         }
         for (element in element14s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element14r)
+            element.draw(batch!!, element14r, scale)
         }
         for (element in element15s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element15r)
+            element.draw(batch!!, element15r, scale)
         }
         for (element in element16s) {
             element.update(windowWidth, windowHeight)
-            element.draw(batch!!, element16r)
+            element.draw(batch!!, element16r, scale)
         }
 
         for (pixel in bluemouses) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, bluemouser)
+            pixel.draw(batch!!, bluemouser, scale)
         }
         for (pixel in star32s) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, star32r)
+            pixel.draw(batch!!, star32r, scale)
         }
         for (pixel in moons) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, moonr)
+            pixel.draw(batch!!, moonr, scale)
         }
         for (pixel in largemoons) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, largemoonr)
+            pixel.draw(batch!!, largemoonr, scale)
         }
         for (pixel in fireflys) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, fireflyr)
+            pixel.draw(batch!!, fireflyr, scale)
         }
         for (pixel in lights) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, lightr)
+            pixel.draw(batch!!, lightr, scale)
         }
         for (pixel in lightons) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, lightonr)
+            pixel.draw(batch!!, lightonr, scale)
         }
         for (pixel in lightoffs) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, lightoffr)
+            pixel.draw(batch!!, lightoffr, scale)
         }
         for (pixel in pixelflys) {
             pixel.update(windowWidth, windowHeight)
-            pixel.draw(batch!!, pixelflyr)
+            pixel.draw(batch!!, pixelflyr, scale)
         }
 
         for (ufo in tinyufos) {
             ufo.update(windowWidth, windowHeight)
-            ufo.draw(batch!!, tinyufor)
+            ufo.draw(batch!!, tinyufor, scale)
         }
         for (alien3 in alien3s) {
             alien3.update(windowWidth, windowHeight)
-            alien3.draw(batch!!, alien3r)
+            alien3.draw(batch!!, alien3r, scale)
         }
         for (alien4 in alien4s) {
             alien4.update(windowWidth, windowHeight)
-            alien4.draw(batch!!, alien4r)
+            alien4.draw(batch!!, alien4r, scale)
         }
 
 
         for (asteroid in asteroid1s) {
             asteroid.update(windowWidth, windowHeight)
-            asteroid.draw(batch!!, asteroid1r)
+            asteroid.draw(batch!!, asteroid1r, scale)
         }
         for (asteroid in asteroid2s) {
             asteroid.update(windowWidth, windowHeight)
-            asteroid.draw(batch!!, asteroid2r)
+            asteroid.draw(batch!!, asteroid2r, scale)
         }
         for (asteroid in asteroid3s) {
             asteroid.update(windowWidth, windowHeight)
-            asteroid.draw(batch!!, asteroid3r)
+            asteroid.draw(batch!!, asteroid3r, scale)
         }
         for (asteroid in asteroid4s) {
             asteroid.update(windowWidth, windowHeight)
-            asteroid.draw(batch!!, asteroid4r)
+            asteroid.draw(batch!!, asteroid4r, scale)
         }
         for (asteroid in asteroid5s) {
             asteroid.update(windowWidth, windowHeight)
-            asteroid.draw(batch!!, asteroid5r)
+            asteroid.draw(batch!!, asteroid5r, scale)
         }
 
         batch!!.end()

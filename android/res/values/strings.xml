@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">OwnPlanetsLiveWallpaper</string>
-  <string name="description">OwnPlanetsLiveWallpaper</string>
+  <string name="app_name">Own Planets Wallpaper - libgdx</string>
+  <string name="description">My own aliens and planets live wallpaper :) this wallpaper uses  libgdx</string>
 </resources>

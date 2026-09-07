@@ -74,9 +74,9 @@ class Planet(windowWidth: Int, windowHeight: Int, image: Texture) {
         }
     }
 
-    fun draw(batch: SpriteBatch, region: TextureRegion?) {
+    fun draw(batch: SpriteBatch, region: TextureRegion?, scale: Float) {
         batch.enableBlending()
-        batch.draw(region, x, y, width / 2f, height / 2f, width.toFloat(), height.toFloat(), 1f, 1f, rotation, clockwise)
+        batch.draw(region, x, y, width / 2f, height / 2f, width.toFloat(), height.toFloat(), scale, scale, rotation, clockwise)
 
     }
 
