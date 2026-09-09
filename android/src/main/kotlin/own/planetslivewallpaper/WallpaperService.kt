@@ -1,11 +1,9 @@
-package own.planetslivewallpaper.android
+package own.planetslivewallpaper
 
 import android.util.Log
 import com.badlogic.gdx.ApplicationListener
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
 import com.badlogic.gdx.backends.android.AndroidLiveWallpaperService
-import own.planetslivewallpaper.Main
-
 
 class WallpaperService : AndroidLiveWallpaperService() {
 

@@ -1,10 +1,8 @@
-package own.planetslivewallpaper.android
+package own.planetslivewallpaper
 
 import android.os.Bundle
-
 import com.badlogic.gdx.backends.android.AndroidApplication
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
-import own.planetslivewallpaper.Main
 
 /** Launches the Android application. */
 class AndroidLauncher : AndroidApplication() {

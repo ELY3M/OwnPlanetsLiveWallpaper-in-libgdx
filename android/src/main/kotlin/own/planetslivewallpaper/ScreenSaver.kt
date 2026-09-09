@@ -1,4 +1,4 @@
-package own.planetslivewallpaper.android
+package own.planetslivewallpaper
 
 /*
 import com.badlogic.gdx.backends.android.AndroidApplicationBase
